@@ -9,29 +9,10 @@ class TestCalculator(unittest.TestCase):
 		self.app = main.app.test_client()
 
 
-	def test_median1(self):
+	def test_max1(self):
 
-		solution = self.app.get('/median?X=1/2,89,23,24,1,2,3,4')
-		self.assertEqual(b'3.5', solution.data)
-
-	def test_median2(self):
-
-		solution = self.app.get('/median?X=1/2,89,23,24')
-		self.assertEqual(b'23.5', solution.data)
-
-
-
-	def test_median3(self):
-
-		solution = self.app.get('/median?X=1/2,89,23,24,12,9,0,2')
-		self.assertEqual(b'10.5', solution.data)
-
-
-	def test_median4(self):
-
-		solution = self.app.get('median?X=1/2,89,23,24,9,8,7,4')
-		self.assertEqual(b"8.5", solution.data)
-
+		solution = self.app.get('/max?X=1,2,5,0,100')
+		self.assertEqual(b'3.5 \n', solution.data)
 
 if __name__ == '__main__':
 	unittest.main()
